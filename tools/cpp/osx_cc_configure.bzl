@@ -114,6 +114,7 @@ def configure_osx_toolchain(repository_ctx, overriden_tools):
         xcrun_result = repository_ctx.execute([
             "env",
             "-i",
+            "DEVELOPER_DIR={}".format(env.get("DEVELOPER_DIR", default = "")),
             "xcrun",
             "--sdk",
             "macosx",
